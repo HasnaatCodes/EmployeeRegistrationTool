@@ -6,7 +6,7 @@ class UserData
     protected $_id, $_firstName, $_lastName, $_password, $_email;
 
     public function __construct($dbRow) {
-        $this->_id = $dbRow['user_id'];
+        $this->_id = $dbRow['employeeID'];
         $this->_firstName = $dbRow['firstname'];
         $this->_lastName = $dbRow['lastname'];
         $this->_password = $dbRow['password'];

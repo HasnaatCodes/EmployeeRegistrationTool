@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 
 require_once ('Models/UserDataSet.php');
 require_once ('Models/UserData.php');

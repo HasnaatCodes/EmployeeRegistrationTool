@@ -7,12 +7,12 @@
  *
  * Only display the Log In form if no user is already signed in.
  */
-//if(isset($_SESSION['logged_in'])){
-//    echo 'You are already signed in, you can log out if you want.';
-//}
-//else{
+if(isset($_SESSION['logged_in'])){
+    echo 'You are already signed in, you can log out if you want.';
+}
+else{
 
-    echo '    <h3>Welcome back to TalkPhones. Log in to view updates</h3>
+    echo '    <h3>Welcome back. Log in to view updates</h3>
 
     <form action="login.php" method="post">
     <div class="container">
@@ -31,7 +31,7 @@
         <input class="btn btn-primary" type="submit" name="login" value="Log In">
     </div>';
 
-//}
+}
 ?>
 
 <?php require('template/footer.phtml') ?>
