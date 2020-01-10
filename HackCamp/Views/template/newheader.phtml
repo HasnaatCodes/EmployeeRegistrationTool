@@ -1,0 +1,82 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="/css/my-style.css" rel="stylesheet">
+
+    <title>Time Registration Tool - <?php echo $view->pageTitle; ?></title>
+</head>
+
+<body role=""document">
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div id="title" class="col-xs-12">
+
+    </div>
+    <div class="container">
+        <div class="navbar-header">
+            <a href="index.php" class="navbar-brand">Time Registration Tool</a>
+        </div>
+
+
+
+        <div class="container">
+        <ul class="nav navbar-nav">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="page1.php">Page</a></li>
+            <li><a href="project.php">Projects</a></li>
+            <li><a href="time.php">Time</a></li>
+        </ul>
+<!--            <form action="--><?php //echo $_SERVER['PHP_SELF']; ?><!--" method="post">-->
+            <?php
+
+
+            if(isset($_SESSION['logged_in']))
+            {
+                echo '<p class="navbar-text pull-right">Welcome Back </p>';
+
+
+                echo '<form action="login.php" method="post">
+                        <div class="content">
+                            <input class="btn btn-danger navbar-btn pull-right" type="submit" name="logout" value="Log Out">
+                        </div>
+                        </form>';
+
+            }
+            else{
+
+                echo '<ul class="nav navbar-nav navbar-right">
+                      <li><a href="register.php">Sign Up</a></li>
+                      <li><a href="login.php">Login</a></li>';
+            }
+
+            if(isset($_POST['logout'])){
+                unset($_SESSION['logged_in']);
+
+                $URL="http://localhost:8000/login.php";
+                echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+
+            }
+//            ?>
+<!--            </form>-->
+
+        </div>
+    </div>
+    </div>
+</nav>
+</html>
+     <div id="content" class="col-xs-6 col-sm-9 col-md-10">
+
+
+

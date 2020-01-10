@@ -1,0 +1,52 @@
+<?php //require('template/newheader.phtml') ?>
+<!---->
+<!--<h3>Welcome to Posts</h3>-->
+<!---->
+<?php //require('template/footer.phtml')
+session_start();
+?>
+
+<?php require('template/newheader.phtml') ?>
+<div class="postData">
+
+<!--<form action="--><?php //echo $_SERVER['PHP_SELF']; ?><!--" method="post">-->
+<?php
+if(isset($_SESSION['logged_in'])){
+
+    echo '<form action="newpost.php" method="post">
+        <div class="container">
+            <input class="btn btn-success" type="submit" id="newpost" name="newpost" value="New Post"></div>
+    </form>';
+
+
+}
+if(isset($_POST['newpost'])){
+
+    $URL="http://localhost:8000/newpost.php";
+    echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+}
+?>
+
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+
+    <form action="#" method="post" class="form-control">
+        <input type="text" name="query" id="searchbutton"/>
+        <input class="btn-sm btn-primary" type="submit" id="searchbutton" name="searchbutton" value="Search">
+    </form>
+
+    <br>
+    <table class="table table-hover" id="mytable">
+        <thead>
+        <tr><th>Post ID</th><th>Subject</th><th>Post</th><th>Time Posted</th><th>UserID</th></tr>
+
+        </thead>
+        <tbody>
+        <?php foreach ($view->postsDataSet as $postsData) {
+            echo '<tr> <td>' . $postsData->getPostID() . '</td> <td>' . $postsData->getSubject() . '</td> <td>' . $postsData->getText() . '</td> <td>' . $postsData->getTimestamp() .'</td> <td>' . $postsData->getUserID() . '</td> </td></tr>';
+        } ?>
+        </tbody>
+    </table>
+</form>
+</div>
+
+<?php require('template/footer.phtml') ?>

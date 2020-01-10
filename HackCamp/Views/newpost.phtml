@@ -1,0 +1,38 @@
+<?php require('template/newheader.phtml') ?>
+
+
+
+<h3>Welcome Back to Talk Phones</h3>
+
+<html>
+<div>
+    <form action="newpost.php" method="post">
+        <div class="container">
+
+            <div class="col-sm-3"
+            <p>Fill in the form to create a new post</p>
+            <hr class="mb-3">
+
+            <label for="userID"><b>Your User ID number</b></label>
+            <input class="form-control" type="text" name="userID" placeholder="52" required>
+
+            <label for="subject"><b>Subject</b></label>
+            <input class="form-control" type="text" name="subject" placeholder="A brief summary of your query" required>
+
+            <label for="threadpost"><b>Post</b></label>
+            <textarea rows="3" class="form-control" name="threadspost" placeholder="Explain your query" required> </textarea>
+
+            <hr class="mb-3">
+            <input class="btn btn-success" type="submit" name="threadsubmit" value="Post">
+        </div>
+
+
+
+</div>
+
+</form>
+
+</div>
+</html>
+
+<?php require('template/footer.phtml') ?>
