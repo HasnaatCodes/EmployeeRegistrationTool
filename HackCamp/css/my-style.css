@@ -12,7 +12,27 @@
 }
 
 .nav.navbar-nav li a {
-    color: #225eb2;
+    /*color: #F5820C;*/
+    color: #023A78;
+    /*color: #666666;*/
+    /*color: #225eb2;*/
+}
+
+.nav.navbar-nav a:hover{
+    background-color: #F5820C;
+    color: #FFFFFF;
+}
+
+
+
+.navbar-header a:hover {
+    background-color: #F5820C;
+    color: #FFFFFF;
+}
+
+.navbar-header a {
+    color: #666666;
+
 }
 
 .postData{
@@ -34,7 +54,7 @@
 
 #content {
     background-color: #fff;
-    border-top: solid 6px #225eb2;
+    border-top: solid 6px #F5820C;
 
 }
 
