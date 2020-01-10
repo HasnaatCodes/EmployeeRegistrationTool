@@ -25,25 +25,25 @@ class UserDataSet
      * Password is also encrypted using the MD5 hash method.
      *
      */
-    public function createUser($firstName, $lastName, $email, $password) {
-
-        $email = htmlentities($email);
-        if(!$this->emailInDatabase($email))
-        {
-            $firstName = htmlentities($firstName);
-            $lastName = htmlentities($lastName); 
-            $password = htmlentities($password);
-            $password = md5($password);
-            $sqlQuery = 'INSERT INTO users (firstname, lastname, password, email) VALUES('."\"$firstName\"".', '."\"$lastName\"".', '."\"$password\"".', '."\"$email\"".')';
-            //var_dump($sqlQuery);
-            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
-            $statement->execute(); // execute the PDO statement
-        }
-        else
-        {
-            echo "Email already taken, please try another email!";
-        }
-    }
+//    public function createUser($firstName, $lastName, $email, $password) {
+//
+//        $email = htmlentities($email);
+//        if(!$this->emailInDatabase($email))
+//        {
+//            $firstName = htmlentities($firstName);
+//            $lastName = htmlentities($lastName);
+//            $password = htmlentities($password);
+//            $password = md5($password);
+//            $sqlQuery = 'INSERT INTO users (firstname, lastname, password, email) VALUES('."\"$firstName\"".', '."\"$lastName\"".', '."\"$password\"".', '."\"$email\"".')';
+//            //var_dump($sqlQuery);
+//            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
+//            $statement->execute(); // execute the PDO statement
+//        }
+//        else
+//        {
+//            echo "Email already taken, please try another email!";
+//        }
+//    }
 
 
     /**
@@ -56,7 +56,7 @@ class UserDataSet
     private function emailInDatabase($email)
     {
         $exists = false;
-        $sql = 'SELECT COUNT(user_id) AS Total FROM users WHERE email='."\"$email\"";
+        $sql = 'SELECT COUNT(employeeID) AS Total FROM employee WHERE email='."\"$email\"";
         //var_dump($sql);
         $statement = $this->_dbHandle->prepare($sql); // prepare a PDO statement
         $statement->execute(); // execute the PDO statement
@@ -79,7 +79,7 @@ class UserDataSet
      */
     public function getUser($email)
     {
-        $sqlQuery = 'SELECT users.* FROM users WHERE email='."\"$email\"";
+        $sqlQuery = 'SELECT employee.* FROM employee WHERE email='."\"$email\"";
         $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
         $statement->execute(); // execute the PDO statement
         $row = $statement->fetch();
@@ -101,7 +101,7 @@ class UserDataSet
         $password = md5($password); //Password Encryption
         $isLoggedIn = false; //Boolean used to maintain state
 
-        $sqlCheck = 'SELECT COUNT(user_id) AS Found FROM users WHERE email='."\"$email\" AND password = \"$password\" ";
+        $sqlCheck = 'SELECT COUNT(employeeID) AS Found FROM employee WHERE email='."\"$email\" AND password = \"$password\" ";
         
 
         $statement = $this->_dbHandle->prepare($sqlCheck); // prepare a PDO statement
