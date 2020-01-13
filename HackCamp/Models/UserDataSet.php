@@ -2,6 +2,7 @@
 
 require_once('Models/Database.php');
 require_once('Models/UserData.php');
+require_once ('Models/project.php');
 
 class UserDataSet
 {
@@ -123,4 +124,15 @@ class UserDataSet
         return $isLoggedIn;
 
     }
+
+
+    public function addProject($name, $employeeID){
+        $query = "INSERT INTO project( name, employeeID) VALUES(?,?);";
+        $statement = $this->_dbHandle->prepare($query); // prepare a PDO statement
+        $statement->execute([$name, $employeeID]);
+    }
+
+
+
+
 }
