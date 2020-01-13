@@ -2,7 +2,7 @@
 
 <h3>Welcome to Time Page. Use this form to submit your worked hours</h3>
 
-<form action="time.php" method="post">
+<div action="time.php" method="post">
     <div class="container">
 
         <div class="col-sm-3"
@@ -29,6 +29,12 @@
 
         <hr class="mb-3">
         <input class="btn btn-primary" type="submit" name="inserttime" value="Submit">
+    </div>
+
+    <div class="filesubmission"
+        <form action="upload.php" method="post" enctype="multipart/form-data" pull-right>
+            Select a file to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
     </div>
 
 </form>

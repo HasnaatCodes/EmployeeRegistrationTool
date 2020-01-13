@@ -19,16 +19,33 @@ class Time
 
         $employeeID = htmlentities($employeeID);
         $projectName = htmlentities($projectName);
-        $start_time = htmlentities($start_time);
-        $end_time = htmlentities($end_time);
 
-        $projectIDsql = 'SELECT projectID FROM project WHERE project.name ='."\"$projectName\"";
-        $statement = $this->_dbHandle->prepare($projectIDsql); // prepare a PDO statement
+        $projectID = $this->getProjectID($projectName);
+        $changedStartTime = date("Y-m-d H:i:s", strtotime($_POST["starttime"]));
+        $changedEndTime = date("Y-m-d H:i:s", strtotime($_POST["endtime"]));
+
+        $sqlQuery = 'INSERT INTO hoursworked (employeeID, projectID, start_time, end_time) VALUES('."\"$employeeID\"".', '."\"$projectID\"".', '."\"$changedStartTime\"".', '."\"$changedEndTime\"".')';
+        $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
+        $statement->execute(); // execute the PDO statement
+
+        echo "Data submitted";
+        $sqlQuery = 'INSERT INTO hoursWorked() VALUES (2020/cxc/,';
+        if(empty($file))
+        {
+            $sqlQuery = $sqlQuery.'0)';
+        }
+
+
+    }
+
+    public function getProjectID($projectName) {
+        $sql = 'SELECT projectID FROM project WHERE project.name ='."\"$projectName\"";
+        $statement = $this->_dbHandle->prepare($sql); // prepare a PDO statement
         $statement->execute(); // execute the PDO statement
         $row = $statement->fetch();
 
-        $projectID = $row["projectID"];
-
+//        $projectID = $row["projectID"];
+        return $row["projectID"];
     }
 
 
