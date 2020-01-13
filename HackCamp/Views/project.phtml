@@ -5,17 +5,32 @@
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <div class="container">
 
-        <div class="col-sm-3"
-        <p>Add projects</p>
-        <hr class="mb-3">
+        <div class="col-sm-3">
+            <label for="projectname"><b>Project Name</b></label>
+            <input class="form-control" type="text" name="projectname" required>
+            <input class="btn btn-primary" type="submit" name="addproject" value="Add Project">
+        </div>
 
-        <label for="projectname"><b>Project Name</b></label>
-        <input class="form-control" type="text" name="projectname" required>
 
 
-        <hr class="mb-3">
+
+
+
+
+
+    <div class="col-sm-3">
+        <label for="chooseproject"><b>Choose Projects</b></label>
+        <select name='projectID' class="form-control" id="chooseproject">
+            <?php foreach ($view->projects as $project){
+                echo '<option value="' . $project['projectID'].'">' . $project['name'] . '</option>';
+            }
+            ?>
+        </select>
+
         <input class="btn btn-primary" type="submit" name="addproject" value="Add Project">
     </div>
+
+
 
 
 

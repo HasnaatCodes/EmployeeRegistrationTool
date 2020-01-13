@@ -126,13 +126,27 @@ class UserDataSet
     }
 
 
-    public function addProject($name, $employeeID){
-        $query = "INSERT INTO project( name, employeeID) VALUES(?,?);";
+    public function addProject($name){
+        $query = "INSERT INTO project( name) VALUES(?);";
         $statement = $this->_dbHandle->prepare($query); // prepare a PDO statement
-        $statement->execute([$name, $employeeID]);
+        $statement->execute([$name]);
     }
 
-
+    public function fetchProjects(){
+        try {
+            $sqlQuery = 'SELECT projectID, name FROM project ORDER BY projectID';
+            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
+            $statement->execute(); // execute the PDO statement
+        }
+        catch (PDOException $e){
+            $e->getMessage();
+        }
+        $dataSet = [];
+        while ($row = $statement->fetch()) {
+            $dataSet[] = $row;
+        }
+        return $dataSet;
+    }
 
 
 }
