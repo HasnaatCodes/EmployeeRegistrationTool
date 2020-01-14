@@ -15,7 +15,7 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="@poseidon.salford.ac.uk" uuid="c0b17ccc-5876-4665-8a50-91bb744dcff3">
+    <data-source source="LOCAL" name="@poseidon.salford.ac.uk [2]" uuid="5e42ff8f-507a-4335-9b83-7bd7423fe429">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>

@@ -4,34 +4,48 @@
     <h3>Welcome to Projects</h3>
     <!--if user is admin, allow user to add projects -->
     <?php if($view->email == "admin@admin.com"): ?>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <div class="container">
 
-                <div class="col-sm-3">
-                    <label for="projectname"><b>Project Name</b></label>
-                    <input class="form-control" type="text" name="projectname" required>
-                    <input class="btn btn-primary" type="submit" name="addProject" value="Add Project">
-                </div>
+        <form class='form-inline' action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <p>As an admin you may add projects, so others can assign themselves to the projects</p>
+            <div class="form-group">
+                <label class='mylabel'for="projectname"><b>Project Name</b></label>
+                <input class="form-control" type="text" name="projectname" required>
             </div>
+            <button type="submit" name='addProject' value='Add Project' class="btn btn-primary mb-2">Add Project</button>
+            <?php if(isset($_SESSION['addedProject'])): ?>
+                <p class="successful"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+                    <?php echo $_SESSION['addedProject']; ?></p>
+                <?php $_SESSION['addedProject'] = null; ?>
+            <?php endif; ?>
+            <?php if(isset($_SESSION['projectExists'])): ?>
+                <p class="error"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                    <?php echo $_SESSION['projectExists']; ?> .Please choose another name for the project</p>
+                <?php $_SESSION['projectExists'] = null; ?>
+            <?php endif; ?>
+
+        </form>
+
+    <?php else: ?>
+        <!-- if user is not an admin, allow the user to add projects -->
+        <form class="form-inline" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+             <div class="form-group">
+                    <label class="mylabel" for="chooseproject"><p>Assign Project</p></label>
+                    <select name='projectID' class="form-control" id="chooseproject">
+                        <?php foreach ($view->projects as $project){
+                            echo '<option value="' . $project['projectID'].'">' . $project['name'] . '</option>';
+                        }
+                        ?>
+                    </select>
+             </div>
+                <button type="submit" name='assignProject' value='Assign Project' class="btn btn-primary mb-2">Assign Project</button>
+            <?php if(isset($_SESSION['assignProject'])): ?>
+                <p class="successful"><?php echo $_SESSION['assignProject']; ?></p>
+                <?php $_SESSION['assignProject'] = null; ?>
+            <?php endif; ?>
         </form>
     <?php endif; ?>
-
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <div class="container">
-            <div class="col-sm-3">
-                <label for="chooseproject"><b>Choose Projects</b></label>
-                <select name='projectID' class="form-control" id="chooseproject">
-                    <?php foreach ($view->projects as $project){
-                        echo '<option value="' . $project['projectID'].'">' . $project['name'] . '</option>';
-                    }
-                    ?>
-                </select>
-                <input class="btn btn-primary" type="submit" name="assignProject" value="Assign Project">
-            </div>
-        </div>
-    </form>
 <?php else: ?>
         <p>You must login to view this page. <a href="login.php">Click here to login</a></p>
 <?php endif; ?>
 
-<?php require('template/footer.phtml') ?>
+<?php require('template/footer.phtml'); ?>

@@ -4,9 +4,8 @@
     <data-source name="@localhost" uuid="858aa2b3-466f-4128-8f48-232879a54941">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
       <secret-storage>master_key</secret-storage>
-      <schema-mapping />
     </data-source>
-    <data-source name="@poseidon.salford.ac.uk" uuid="c0b17ccc-5876-4665-8a50-91bb744dcff3">
+    <data-source name="@poseidon.salford.ac.uk [2]" uuid="5e42ff8f-507a-4335-9b83-7bd7423fe429">
       <database-info product="MySQL" version="5.7.28-0ubuntu0.18.04.4" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.15 (Revision: 79a4336f140499bd22dd07f02b708e163844e3d5)" dbms="MYSQL" exact-version="5.7.28" exact-driver-version="8.0">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
@@ -14,11 +13,7 @@
       <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
       <user-name>hackcamp4</user-name>
-      <schema-mapping>
-        <introspection-scope>
-          <node kind="schema" qname="@" />
-        </introspection-scope>
-      </schema-mapping>
+      <introspection-schemas>*:@</introspection-schemas>
     </data-source>
   </component>
 </project>
