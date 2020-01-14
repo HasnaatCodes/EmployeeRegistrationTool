@@ -1,40 +1,37 @@
 <?php require('template/newheader.phtml') ?>
+<!--only display page if user has logged in -->
+<?php if(isset($_SESSION['logged_in'])): ?>
+    <h3>Welcome to Projects</h3>
+    <!--if user is admin, allow user to add projects -->
+    <?php if($view->email == "admin@admin.com"): ?>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <div class="container">
 
-<h3>Welcome to Projects</h3>
+                <div class="col-sm-3">
+                    <label for="projectname"><b>Project Name</b></label>
+                    <input class="form-control" type="text" name="projectname" required>
+                    <input class="btn btn-primary" type="submit" name="addProject" value="Add Project">
+                </div>
+            </div>
+        </form>
+    <?php endif; ?>
 
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-    <div class="container">
-
-        <div class="col-sm-3">
-            <label for="projectname"><b>Project Name</b></label>
-            <input class="form-control" type="text" name="projectname" required>
-            <input class="btn btn-primary" type="submit" name="addproject" value="Add Project">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <div class="container">
+            <div class="col-sm-3">
+                <label for="chooseproject"><b>Choose Projects</b></label>
+                <select name='projectID' class="form-control" id="chooseproject">
+                    <?php foreach ($view->projects as $project){
+                        echo '<option value="' . $project['projectID'].'">' . $project['name'] . '</option>';
+                    }
+                    ?>
+                </select>
+                <input class="btn btn-primary" type="submit" name="assignProject" value="Assign Project">
+            </div>
         </div>
-
-
-
-
-
-
-
-
-    <div class="col-sm-3">
-        <label for="chooseproject"><b>Choose Projects</b></label>
-        <select name='projectID' class="form-control" id="chooseproject">
-            <?php foreach ($view->projects as $project){
-                echo '<option value="' . $project['projectID'].'">' . $project['name'] . '</option>';
-            }
-            ?>
-        </select>
-
-        <input class="btn btn-primary" type="submit" name="addproject" value="Add Project">
-    </div>
-
-
-
-
-
-    </div>
-</form>
+    </form>
+<?php else: ?>
+        <p>You must login to view this page. <a href="login.php">Click here to login</a></p>
+<?php endif; ?>
 
 <?php require('template/footer.phtml') ?>
