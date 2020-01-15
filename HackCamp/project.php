@@ -41,7 +41,9 @@ if(isset($_POST['assignProject'])) {
     $_SESSION['assignProject'] = 'You have successfully assigned the project';
 
 }
-// fetch projects so they can be available to select from dropdown box
-$view->projects =$userDataSet ->fetchProjects();
+// fetch projects so they are available to select from dropdown box
+if (isset($_SESSION['login'])){
+    $view->projects = $userDataSet->fetchAvailableProjects($_SESSION['login']->getUserID());
+}
 
 require_once('Views/project.phtml');

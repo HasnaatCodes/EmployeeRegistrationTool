@@ -1,9 +1,8 @@
 <?php
 
-session_start();
-
 require_once 'Models/Time.php';
 require_once 'Models/UserDataSet.php';
+session_start();
 $view = new stdClass();
 $view->pageTitle = 'Time';
 $timeData = new Time();
@@ -22,6 +21,12 @@ if (isset($_POST['inserttime'])) {
     $timeData->insertTime($employeeID, $projectName, $start_time, $end_time);
 
 }
+// fetch projects so they are available to select from dropdown box
+if(isset($_SESSION['login'])){
+    $view->projects =$userDataSet->fetchAssignedProjects($_SESSION['login']->getUserID());
+}
+else{
+    $view->projects =$userDataSet->fetchAllProjects();
+}
 
-$view->projects =$userDataSet ->fetchProjects();
 require_once('Views/time.phtml');
