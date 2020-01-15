@@ -2,6 +2,7 @@
 
 require_once('Models/Database.php');
 require_once('Models/UserData.php');
+require_once ('Models/project.php');
 
 class UserDataSet
 {
@@ -122,5 +123,64 @@ class UserDataSet
         }
         return $isLoggedIn;
 
+    }
+
+    public function checkIfProjectExists($projectName){
+        try {
+            $sqlQuery = 'SELECT projectID FROM project WHERE name = ?; ';
+            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
+            $statement->execute([$projectName]); // execute the PDO statement
+            $row = $statement->fetch();
+        }
+        catch (PDOException $e){
+            $e->getMessage();
+        }
+
+        return $row['projectID'];
+    }
+
+    public function addProject($name){
+        $query = "INSERT INTO project( name) VALUES(?);";
+        $statement = $this->_dbHandle->prepare($query); // prepare a PDO statement
+        $statement->execute([$name]);
+    }
+
+    public function fetchProjects(){
+        try {
+            $sqlQuery = 'SELECT projectID, name FROM project WHERE projectID NOT IN (SELECT projectID FROM assigned_project) ORDER BY projectID';
+            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
+            $statement->execute(); // execute the PDO statement
+        }
+        catch (PDOException $e){
+            $e->getMessage();
+        }
+        $dataSet = [];
+        while ($row = $statement->fetch()) {
+            $dataSet[] = $row;
+        }
+        return $dataSet;
+    }
+    public function assignProject($projectID, $employeeID){
+        $query = "INSERT INTO assigned_project(projectID, employeeID) VALUES(?,?);";
+        $statement = $this->_dbHandle->prepare($query); // prepare a PDO statement
+        $statement->execute([$projectID, $employeeID]);
+    }
+
+
+
+    public function fetchEmployees(){
+        try {
+            $sqlQuery = 'SELECT employeeID,firstname,lastname, email  FROM employee ORDER BY employeeID';
+            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
+            $statement->execute(); // execute the PDO statement
+        }
+        catch (PDOException $e){
+            $e->getMessage();
+        }
+        $dataSet = [];
+        while ($row = $statement->fetch()) {
+            $dataSet[] = $row;
+        }
+        return $dataSet;
     }
 }
