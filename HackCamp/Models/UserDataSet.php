@@ -115,10 +115,10 @@ class UserDataSet
                 $_SESSION['logged_in'] = $this->getUser($email);
                 $user = $this->getUser($email);
                 $_SESSION['login'] = $user;
-                echo "Works";
+                return true;
             }
             else{
-                echo "User Not Found";
+                return false;
             }
         }
         return $isLoggedIn;

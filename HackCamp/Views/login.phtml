@@ -28,8 +28,14 @@ else{
         <input class="form-control" type="password" name="password" placeholder="********" required>
 
         <hr class="mb-3">
-        <input class="btn btn-primary" type="submit" name="login" value="Log In">
-    </div>';
+        <input class="btn btn-primary" type="submit" name="login" value="Log In">';
+
+    if($view->userValidation == false){
+        echo '<p class="error">Email or Password is invalid <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></p>';
+        $view->userValidation = null;
+    }
+
+    echo '</div>';
 
 }
 ?>

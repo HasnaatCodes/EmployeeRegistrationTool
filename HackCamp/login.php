@@ -6,7 +6,7 @@ require_once ('Models/UserData.php');
 
 $view = new stdClass();
 $view->pageTitle = 'Login';
-
+$view->userValidation = true;
 $userDataSet = new UserDataSet();
 
 //$isUserLoggedIn = $_SESSION['userName'];
@@ -20,11 +20,13 @@ $userDataSet = new UserDataSet();
 if(isset($_POST['login'])){
     $email          = $_POST['email'];
     $password       = $_POST['password'];
-    $userDataSet->checkLogIn($email, $password);
-
-    $URL="http://localhost:8000/login.php";
-    echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+    $view->userValidation = $userDataSet->checkLogIn($email, $password);
+    if($view->userValidation == true) {
+        $URL = "http://localhost:8000/login.php";
+        echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+    }
 
 }
+
 
 require_once('Views/login.phtml');
