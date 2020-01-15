@@ -58,10 +58,10 @@
 
 }
 
-#filesubmission{
+.filesubmission{
     position: absolute;
-    left: 100px;
-    top: 150px;
+    left: 1000px;
+    top: 120px;
 }
 
 #footer {
@@ -69,6 +69,10 @@
     text-align: center;
     background-color: #000;
     color: #fff;
+}
+
+.fileToUpload{
+    margin-bottom: 5px;
 }
 
 .content {
