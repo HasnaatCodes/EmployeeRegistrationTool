@@ -29,6 +29,22 @@
 
         <hr class="mb-3">
         <input class="btn btn-primary" type="submit" name="inserttime" value="Submit">
+
+        <?php if(isset($_SESSION['dataSubmitted'])): ?>
+
+            <p class="successful">
+                <?php
+
+                echo $_SESSION['dataSubmitted'];
+                ?>
+                <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></p>
+
+            <?php
+            $_SESSION['dataSubmitted'] = null;
+
+        endif;
+        ?>
+
     </div>
 </form>
 
@@ -48,6 +64,22 @@
     </div>
     <hr class="mb-3">
     <input class="btn btn-primary" type="submit" value="Upload File" name="submitfile">
+
+    <?php if(isset($_SESSION['fileUploaded'])): ?>
+
+     <p class="successful">
+         <?php
+
+        echo $_SESSION['fileUploaded'];
+        ?>
+         <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></p>
+
+    <?php
+        $_SESSION['fileUploaded'] = null;
+
+        endif;
+    ?>
+
 </form>
 </div>
 

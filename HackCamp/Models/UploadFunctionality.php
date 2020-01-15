@@ -18,7 +18,7 @@ class UploadFunctionality{
         $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
 
         if($statement->execute()){
-            echo "File Successfully Saved";
+            $_SESSION['fileUploaded'] = "You have successfully uploaded the file";
             $this->updateSignedHours($employeeID);
         }
     }

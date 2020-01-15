@@ -26,7 +26,7 @@ class Time
         $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
         $statement->execute(); // execute the PDO statement
 
-        echo "Data submitted";
+        $_SESSION['dataSubmitted'] = "You have successfully submitted your worked hour details";
 
     }
 

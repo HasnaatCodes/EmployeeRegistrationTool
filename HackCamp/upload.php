@@ -5,7 +5,6 @@ session_start();
 $view = new stdClass();
 $view->pageTitle = 'Test';
 require_once 'Models/UploadFunctionality.php';
-require_once('Views/time.phtml');
 
 $uploadData = new UploadFunctionality();
 
@@ -33,7 +32,6 @@ function storeFile($file)
     if(move_uploaded_file($tmp,$path))
     {
         $filePath = $path;
-        echo "Sucessfully uploaded";
     }
     else
     {
@@ -42,3 +40,4 @@ function storeFile($file)
 
     return $filePath;
 }
+require_once('Views/time.phtml');
