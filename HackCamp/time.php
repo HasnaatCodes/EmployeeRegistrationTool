@@ -3,9 +3,11 @@
 session_start();
 
 require_once 'Models/Time.php';
+require_once 'Models/UserDataSet.php';
 $view = new stdClass();
 $view->pageTitle = 'Time';
 $timeData = new Time();
+$userDataSet = new UserDataSet();
 
 
 /**
@@ -20,4 +22,6 @@ if (isset($_POST['inserttime'])) {
     $timeData->insertTime($employeeID, $projectName, $start_time, $end_time);
 
 }
+
+$view->projects =$userDataSet ->fetchProjects();
 require_once('Views/time.phtml');
