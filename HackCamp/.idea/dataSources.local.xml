@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="@localhost" uuid="858aa2b3-466f-4128-8f48-232879a54941">
+    <data-source name="@poseidon.salford.ac.uk" uuid="708ca993-cc60-4141-984f-f2dd2b704352">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
       <secret-storage>master_key</secret-storage>
     </data-source>
@@ -14,6 +14,7 @@
       <secret-storage>master_key</secret-storage>
       <user-name>hackcamp4</user-name>
       <introspection-schemas>*:@</introspection-schemas>
+
     </data-source>
   </component>
 </project>

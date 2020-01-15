@@ -1,0 +1,21 @@
+<?php require('template/newheader.phtml') ?>
+
+<h3>Welcome to Upload Page</h3>
+
+<div class="filesubmission"
+
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="filetitle"><b>File Name</b></label>
+        <input class="form-control" type="text" name="filetitle" id="filetitle" placeholder="file.docx" > <br>
+    </div>
+    <div class="form-check">
+        <label for="fileToUpload"><b>Upload the signed timesheet here:</b></label>
+        <input class="fileToUpload" type="file" name="fileToUpload" id="fileToUpload">
+    </div>
+    <input class="btn btn-primary" type="submit" value="Upload File" name="submitfile">
+
+
+</form>
+</div>
+<?php require('template/footer.phtml') ?>

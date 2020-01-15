@@ -29,6 +29,7 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
+
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -67,10 +68,12 @@
         <item name="project: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
+
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -85,20 +88,24 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
               <caret line="16" selection-start-line="16" selection-end-line="16" />
+
             </state>
           </provider>
         </entry>
       </file>
+
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Views/project.phtml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="501">
               <caret line="48" column="25" lean-forward="true" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
+
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+
         <entry file="file://$PROJECT_DIR$/Views/template/footer.phtml">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -108,20 +115,24 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="410">
               <caret line="57" selection-start-line="57" selection-end-line="57" />
+
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/my-style.css">
+        <entry file="file://$PROJECT_DIR$/Models/UserData.php">
           <provider selected="true" editor-type-id="text-editor">
+
             <state relative-caret-position="688">
               <caret line="101" column="21" lean-forward="true" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
+
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+
         <entry file="file://$PROJECT_DIR$/Views/template/newheader.phtml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1190">
@@ -135,15 +146,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="161">
               <caret line="149" column="107" selection-start-line="149" selection-start-column="107" selection-end-line="149" selection-end-column="107" />
+
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+
         <entry file="das://5e42ff8f-507a-4335-9b83-7bd7423fe429/schema/hackcamp4/table/employee">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state projectRestartId="905a15f3-4391-43d2-be8d-0f73de6d2d22">
               <filtering />
+
             </state>
           </provider>
         </entry>
@@ -151,7 +165,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="das://5e42ff8f-507a-4335-9b83-7bd7423fe429/schema/hackcamp4/table/project">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+
             <state projectRestartId="905a15f3-4391-43d2-be8d-0f73de6d2d22">
+
               <filtering />
             </state>
           </provider>
@@ -179,9 +195,11 @@
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-17" />
     <option name="y" value="-9" />
+
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -202,6 +220,7 @@
             <path>
               <item name="HackCamp" type="b2602c69:ProjectViewProjectNode" />
               <item name="HackCamp" type="462c0819:PsiDirectoryNode" />
+
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -212,6 +231,7 @@
             <path>
               <item name="HackCamp" type="b2602c69:ProjectViewProjectNode" />
               <item name="HackCamp" type="462c0819:PsiDirectoryNode" />
+
               <item name="Models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -300,11 +320,17 @@
       <workItem from="1578995303981" duration="14595000" />
       <workItem from="1579012936714" duration="5291000" />
       <workItem from="1579082690345" duration="4514000" />
+
+      <workItem from="1579087873408" duration="11000" />
+      <workItem from="1579087923668" duration="572000" />
+
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+
     <option name="totallyTimeSpent" value="24400000" />
+
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -316,10 +342,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-65" y="0" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
+
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14392324" />
+
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -398,6 +426,7 @@
       </map>
     </option>
   </component>
+
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -459,10 +488,12 @@
     <entry file="das://5e42ff8f-507a-4335-9b83-7bd7423fe429/schema/hackcamp4/table/project">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="905a15f3-4391-43d2-be8d-0f73de6d2d22">
+
           <filtering />
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/Views/template/footer.phtml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -472,6 +503,7 @@
           <caret line="57" selection-start-line="57" selection-end-line="57" />
         </state>
       </provider>
+
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/UserData.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -480,6 +512,7 @@
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/Models/UserDataSet.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -505,6 +538,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
           <caret line="48" column="25" lean-forward="true" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
+
         </state>
       </provider>
     </entry>
