@@ -6,7 +6,7 @@ $view->pageTitle = 'project';
 
 
 $userDataSet = new UserDataSet();
-$view->projects =$userDataSet ->fetchProjects();
+
 
 $view->employees = $userDataSet->fetchEmployees();
 
@@ -37,8 +37,11 @@ if(isset($_POST['assignProject'])) {
     $projectID = $_POST['projectID'];
     $user = $_SESSION['login'];
     $employeeID = $user->getUserID();
-
     $userDataSet->assignProject($projectID, $employeeID);
-    $_SESSION['assignProject'] = 'You have successfully assigned a project';
+    $_SESSION['assignProject'] = 'You have successfully assigned the project';
+
 }
+// fetch projects so they can be available to select from dropdown box
+$view->projects =$userDataSet ->fetchProjects();
+
 require_once('Views/project.phtml');

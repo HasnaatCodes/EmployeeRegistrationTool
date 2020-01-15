@@ -101,7 +101,7 @@
     border-color: greenyellow;
     margin-top: 30px;
 }
-.error{
+.no-projects, .error{
     color: red;
     margin-top: 30px;
 }
