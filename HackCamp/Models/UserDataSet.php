@@ -160,6 +160,8 @@ class UserDataSet
         }
         return $dataSet;
     }
+
+
     public function assignProject($projectID, $employeeID){
         $query = "INSERT INTO assigned_project(projectID, employeeID) VALUES(?,?);";
         $statement = $this->_dbHandle->prepare($query); // prepare a PDO statement
