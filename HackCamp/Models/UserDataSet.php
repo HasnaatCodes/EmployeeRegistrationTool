@@ -145,9 +145,40 @@ class UserDataSet
         $statement->execute([$name]);
     }
 
-    public function fetchProjects(){
+    public function fetchAvailableProjects($employeeID){
         try {
-            $sqlQuery = 'SELECT projectID, name FROM project WHERE projectID NOT IN (SELECT projectID FROM assigned_project) ORDER BY projectID';
+            $sqlQuery = 'SELECT projectID, name FROM project WHERE projectID NOT IN (SELECT projectID FROM assigned_project where employeeID = ? ) ORDER BY projectID';
+            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
+            $statement->execute([$employeeID]); // execute the PDO statement
+        }
+        catch (PDOException $e){
+            $e->getMessage();
+        }
+        $dataSet = [];
+        while ($row = $statement->fetch()) {
+            $dataSet[] = $row;
+        }
+        return $dataSet;
+    }
+    public function fetchAssignedProjects($employeeID){
+        try {
+            $sqlQuery = 'SELECT projectID, name FROM project WHERE projectID IN (SELECT projectID FROM assigned_project where employeeID = ? ) ORDER BY projectID';
+            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
+            $statement->execute([$employeeID]); // execute the PDO statement
+        }
+        catch (PDOException $e){
+            $e->getMessage();
+        }
+        $dataSet = [];
+        while ($row = $statement->fetch()) {
+            $dataSet[] = $row;
+        }
+        return $dataSet;
+    }
+
+    public function fetchAllProjects(){
+        try {
+            $sqlQuery = 'SELECT projectID, name FROM project ORDER BY projectID';
             $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
             $statement->execute(); // execute the PDO statement
         }
