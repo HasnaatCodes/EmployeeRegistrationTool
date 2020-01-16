@@ -3,14 +3,10 @@ require_once 'Models/UserDataSet.php';
 session_start();
 $view = new stdClass();
 $view->pageTitle = 'project';
-
-
 $userDataSet = new UserDataSet();
 
 
 $view->employees = $userDataSet->fetchEmployees();
-
-
 
 //admin has a unique email
 if(isset($_SESSION['login'])){

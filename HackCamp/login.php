@@ -1,8 +1,8 @@
 <?php
-session_start();
 
 require_once ('Models/UserDataSet.php');
 require_once ('Models/UserData.php');
+session_start();
 
 $view = new stdClass();
 $view->pageTitle = 'Login';
