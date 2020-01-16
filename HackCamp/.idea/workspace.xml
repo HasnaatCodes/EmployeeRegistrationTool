@@ -5,6 +5,7 @@
       <change afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/UserDataSet.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UserDataSet.php" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/Views/register.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/register.phtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/template/newheader.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/template/newheader.phtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
@@ -12,6 +13,7 @@
       <change beforePath="$PROJECT_DIR$/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/project.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/time.php" beforeDir="false" afterPath="$PROJECT_DIR$/time.php" afterDir="false" />
+
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,35 +82,43 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Views/template/newheader.phtml">
           <provider selected="true" editor-type-id="text-editor">
+
             <state relative-caret-position="325">
               <caret line="43" column="82" lean-forward="true" selection-start-line="43" selection-start-column="82" selection-end-line="43" selection-end-column="82" />
+
             </state>
           </provider>
         </entry>
       </file>
+
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Views/index.phtml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
               <caret line="5" selection-start-line="5" selection-end-line="5" />
+
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+
             </state>
           </provider>
         </entry>
       </file>
+
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/login.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
               <caret line="1" selection-start-line="1" selection-end-line="1" />
+
             </state>
           </provider>
         </entry>
@@ -116,13 +126,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Views/template/footer.phtml">
           <provider selected="true" editor-type-id="text-editor" />
+
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/Database.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+            </state>
+          </provider>
+
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/header.php">
           <provider selected="true" editor-type-id="text-editor">
+
             <state relative-caret-position="34">
               <caret line="2" column="22" selection-start-line="2" selection-end-line="2" selection-end-column="38" />
+
             </state>
           </provider>
         </entry>
@@ -130,6 +153,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project.php">
           <provider selected="true" editor-type-id="text-editor">
+
             <state relative-caret-position="119">
               <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
             </state>
@@ -159,6 +183,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
               <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+
             </state>
           </provider>
         </entry>
@@ -171,6 +196,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+
         <option value="$PROJECT_DIR$/css/my-style.css" />
         <option value="$PROJECT_DIR$/Views/time.phtml" />
         <option value="$PROJECT_DIR$/Models/UserDataSet.php" />
@@ -183,6 +209,7 @@
         <option value="$PROJECT_DIR$/Views/template/newheader.phtml" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/login.php" />
+
       </list>
     </option>
   </component>
@@ -199,6 +226,7 @@
     <option name="width" value="861" />
     <option name="height" value="945" />
   </component>
+  <component name="ProjectId" id="1WS1I7W9l63yuqU52zaijYVglaA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -250,7 +278,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="F:/mohammad_patel_sgb899/MVCtemplate" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
   </component>
   <component name="RunDashboard">
@@ -323,11 +351,15 @@
       <workItem from="1579087873408" duration="11000" />
       <workItem from="1579087923668" duration="572000" />
       <workItem from="1579091904476" duration="2015000" />
+      <workItem from="1579128101860" duration="371000" />
+      <workItem from="1579128880347" duration="4482000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+
     <option name="totallyTimeSpent" value="32545000" />
+
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -342,6 +374,7 @@
     <frame x="1912" y="-8" width="1296" height="1000" extended-state="6" />
     <editor active="true" />
     <layout>
+
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1512945" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -349,6 +382,7 @@
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32871974" />
       <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39907727" />
+
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -364,6 +398,7 @@
       <window_info anchor="right" id="Database" order="3" weight="0.18603411" />
     </layout>
     <layout-to-restore>
+
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14392324" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -371,6 +406,7 @@
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
       <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3997833" />
+
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -383,7 +419,9 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+
       <window_info anchor="right" id="Database" order="3" visible="true" weight="0.18603411" />
+
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,6 +439,7 @@
               <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
                 <collection />
               </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -421,67 +460,89 @@
       </map>
     </option>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/export.php</url>
+          <line>36</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="export.php">
+        <watch expression="$row[2]" />
+        <watch expression="$newRow" />
+      </configuration>
+    </watches-manager>
+  </component>
   <component name="editorHistoryManager">
+
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c0b17ccc-5876-4665-8a50-91bb744dcff3/console.sql" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5e42ff8f-507a-4335-9b83-7bd7423fe429/console.sql" />
     <entry file="das://5e42ff8f-507a-4335-9b83-7bd7423fe429/schema/hackcamp4/table/hoursworked">
+
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="023a9100-9a1b-445f-bbeb-f5f3a978672f">
+        <state projectRestartId="e1f2bda3-430f-4c68-a796-71b064964488">
           <filtering />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://5e42ff8f-507a-4335-9b83-7bd7423fe429/schema/hackcamp4/table/assigned_project">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="023a9100-9a1b-445f-bbeb-f5f3a978672f">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/my-style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="688">
-          <caret line="101" column="21" lean-forward="true" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="das://5e42ff8f-507a-4335-9b83-7bd7423fe429/schema/hackcamp4/table/project">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="0e822f16-95f8-42b8-9c39-e608564c49f0">
+        <state projectRestartId="e1f2bda3-430f-4c68-a796-71b064964488">
           <filtering />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/project.php">
+    <entry file="file://$PROJECT_DIR$/Models/UserData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        <state relative-caret-position="522">
+          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://5e42ff8f-507a-4335-9b83-7bd7423fe429/schema/hackcamp4/table/employee">
+
+    <entry file="das://5e42ff8f-507a-4335-9b83-7bd7423fe429/schema/hackcamp4/table/project">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="0e822f16-95f8-42b8-9c39-e608564c49f0">
           <filtering />
         </state>
+
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/UploadFunctionality.php">
+    <entry file="file://$PROJECT_DIR$/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        <state relative-caret-position="374">
+          <caret line="22" column="72" selection-start-line="22" selection-start-column="72" selection-end-line="22" selection-end-column="72" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Views/template/newheader.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+
+    <entry file="das://5e42ff8f-507a-4335-9b83-7bd7423fe429/schema/hackcamp4/table/employee">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="0e822f16-95f8-42b8-9c39-e608564c49f0">
+          <filtering />
+
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/project.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+
     <entry file="file://$PROJECT_DIR$/upload.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -519,9 +580,11 @@
           <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
+
     </entry>
-    <entry file="file://$PROJECT_DIR$/time.php">
+    <entry file="file://$PROJECT_DIR$/project.php">
       <provider selected="true" editor-type-id="text-editor">
+
         <state relative-caret-position="136">
           <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
         </state>
@@ -583,6 +646,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
+
         </state>
       </provider>
     </entry>

@@ -1,0 +1,14 @@
+<?php require('template/newheader.phtml') ?>
+
+    <h3>You can Export a report for an employee</h3>
+
+    <form class="form-inline" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <div class="form-group">
+            <label for="employee_ID">Employee ID</label>
+            <input class="form-control" type="text" name="employee_ID" placeholder="5346" >
+        </div>
+        <button type="submit" name="export" class="btn btn-primary">Generate Report</button>
+    </form>
+
+
+<?php require('template/footer.phtml') ?>
