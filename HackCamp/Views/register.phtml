@@ -1,41 +1,48 @@
 <?php require('template/newheader.phtml') ?>
 
+<?php if(isset($_SESSION['logged_in'])): ?>
 
+    <!--if user is admin, allow user to add users -->
+    <?php if($view->email == "admin@admin.com"): ?>
 
-<h3>Welcome to TalkPhones, join the family by signing up</h3>
+        <h3>Welcome to the Sign Up page</h3>
 
-<html>
-<div>
-    <form action="register.php" method="post">
-        <div class="container">
+        <html>
+        <div>
+            <form action="register.php" method="post">
+                <div class="container">
 
-            <div class="col-sm-3"
-                <p>Please fill in the form to be registered</p>
-                <hr class="mb-3">
+                    <div class="col-sm-3"
+                    <p>Please fill in the form to add a new user</p>
+                    <hr class="mb-3">
 
-                <label for="firstname"><b>First Name</b></label>
-                <input class="form-control" type="text" name="firstname" placeholder="John" required>
+                    <label for="firstname"><b>First Name</b></label>
+                    <input class="form-control" type="text" name="firstname" placeholder="John" required>
 
-                <label for="lastname"><b>Last Name</b></label>
-                <input class="form-control" type="text" name="lastname" placeholder="Smith" required>
+                    <label for="lastname"><b>Last Name</b></label>
+                    <input class="form-control" type="text" name="lastname" placeholder="Smith" required>
 
-                <label for="email"><b>Email</b></label>
-                <input class="form-control" type="email" name="email" placeholder="name@email.com" required>
+                    <label for="email"><b>Email</b></label>
+                    <input class="form-control" type="email" name="email" placeholder="name@email.com" required>
 
-                <label for="password"><b>Password</b></label>
-                <input class="form-control" type="password" name="password" placeholder="********" required>
+                    <label for="password"><b>Password</b></label>
+                    <input class="form-control" type="password" name="password" placeholder="********" required>
 
-                <hr class="mb-3">
-                <input class="btn btn-primary" type="submit" name="signup" value="Sign Up">
-            </div>
-
-
-
+                    <hr class="mb-3">
+                    <input class="btn btn-primary" type="submit" name="signup" value="Sign Up">
+                </div>
         </div>
 
-    </form>
+        </form>
 
-</div>
-</html>
+        </div>
+        </html>
+        <!-- if user is not an admin, allow the user to add projects -->
+
+<?php else: ?>
+    <p>You must be an admin to view this page</a></p>
+<?php endif; ?>
+<?php endif; ?>
+
 
 <?php require('template/footer.phtml') ?>

@@ -8,7 +8,6 @@ $view->pageTitle = 'Time';
 $timeData = new Time();
 $userDataSet = new UserDataSet();
 
-
 /**
  *
  * * Send the values from the form to the createUser function in userDataSet and create a new User

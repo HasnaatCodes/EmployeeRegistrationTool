@@ -125,6 +125,29 @@ class UserDataSet
 
     }
 
+    public function createUser($firstName, $lastName, $email, $password) {
+
+        $email = htmlentities($email);
+        if(!$this->emailInDatabase($email))
+        {
+            $firstName = htmlentities($firstName);
+            $lastName = htmlentities($lastName);
+            $password = htmlentities($password);
+            $password = md5($password);
+            $sqlQuery = 'INSERT INTO employee (firstname, lastname, password, email) VALUES('."\"$firstName\"".', '."\"$lastName\"".', '."\"$password\"".', '."\"$email\"".')';
+            //var_dump($sqlQuery);
+            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
+
+            if($statement->execute()){
+                echo 'User successfully registered';
+            }
+        }
+        else
+        {
+            echo "Email already taken, please try another email!";
+        }
+    }
+
     public function checkIfProjectExists($projectName){
         try {
             $sqlQuery = 'SELECT projectID FROM project WHERE name = ?; ';
