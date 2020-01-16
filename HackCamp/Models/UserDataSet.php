@@ -162,6 +162,63 @@ class UserDataSet
         return $row['projectID'];
     }
 
+    //gets a list of employees
+    public function fetchEmployees(){
+        try {
+            $sqlQuery = 'SELECT employeeID, firstname, lastname, email FROM employee ORDER BY employeeID;';
+            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
+            $statement->execute(); // execute the PDO statement
+        }
+        catch (PDOException $e){
+            $e->getMessage();
+        }
+        $dataSet = [];
+        while ($row = $statement->fetch()) {
+            $dataSet[] = $row;
+        }
+        return $dataSet;
+    }
+
+    //gets the average hours worked by an employee for each project
+    public function getAverageForProject($employeeID){
+        try {
+            $sqlQuery = 'SELECT hoursworked.projectID, project.name, SUM(TIMESTAMPDIFF(MINUTE,start_time, end_time)) As TotalHours
+                        FROM hoursworked INNER  JOIN project ON project.projectID = hoursworked.projectID 
+                        WHERE employeeID = ?
+                        GROUP BY hoursworked.projectID;';
+            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
+            $statement->execute([$employeeID]); // execute the PDO statement
+        }
+        catch (PDOException $e){
+            $e->getMessage();
+        }
+        $dataSet = [];
+        while ($row = $statement->fetch()) {
+            $dataSet[] = $row;
+        }
+        return $dataSet;
+    }
+
+
+    public function getEmployeeDetails($employeeID){
+        try {
+            $sqlQuery = 'SELECT employeeID, firstname, lastname 
+                        FROM employee
+                        WHERE employeeID = ?';
+            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
+            $statement->execute([$employeeID]); // execute the PDO statement
+        }
+        catch (PDOException $e){
+            $e->getMessage();
+        }
+        $dataSet = [];
+        while ($row = $statement->fetch()) {
+            $dataSet[] = $row;
+        }
+        return $dataSet;
+    }
+
+
     public function addProject($name){
         $query = "INSERT INTO project( name) VALUES(?);";
         $statement = $this->_dbHandle->prepare($query); // prepare a PDO statement
@@ -224,19 +281,5 @@ class UserDataSet
 
 
 
-    public function fetchEmployees(){
-        try {
-            $sqlQuery = 'SELECT employeeID,firstname,lastname, email  FROM employee ORDER BY employeeID';
-            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
-            $statement->execute(); // execute the PDO statement
-        }
-        catch (PDOException $e){
-            $e->getMessage();
-        }
-        $dataSet = [];
-        while ($row = $statement->fetch()) {
-            $dataSet[] = $row;
-        }
-        return $dataSet;
-    }
+
 }
