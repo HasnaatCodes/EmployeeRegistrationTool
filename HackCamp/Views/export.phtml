@@ -2,17 +2,12 @@
 
     <h3>You can Export a report for an employee</h3>
 
-    <form class="form-inline">
+    <form class="form-inline" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <div class="form-group">
-            <label for="employeeName">Employee Email</label>
-            <select name="employeeID" class="form-control" id="employeeName">
-                <?php foreach ($view->employees as $employee){
-                    echo '<option value="' . $employee['employeeID'].'">' . $employee['email'] . '</option>';
-                }
-                ?>
-            </select>
+            <label for="employee_ID">Employee ID</label>
+            <input class="form-control" type="text" name="employee_ID" placeholder="5346" >
         </div>
-        <button type="submit" class="btn btn-default">Generate Report</button>
+        <button type="submit" name="export" class="btn btn-primary">Generate Report</button>
     </form>
 
 
