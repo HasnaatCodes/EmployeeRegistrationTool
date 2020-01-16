@@ -1,0 +1,19 @@
+<?php require('template/newheader.phtml') ?>
+
+    <h3>You can Export a report for an employee</h3>
+
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="employeeName">Employee Email</label>
+            <select name="employeeID" class="form-control" id="employeeName">
+                <?php foreach ($view->employees as $employee){
+                    echo '<option value="' . $employee['employeeID'].'">' . $employee['email'] . '</option>';
+                }
+                ?>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-default">Generate Report</button>
+    </form>
+
+
+<?php require('template/footer.phtml') ?>

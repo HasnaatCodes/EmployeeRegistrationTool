@@ -139,6 +139,22 @@ class UserDataSet
         return $row['projectID'];
     }
 
+    public function fetchEmployees(){
+        try {
+            $sqlQuery = 'SELECT employeeID, firstname, lastname, email FROM employee ORDER BY employeeID;';
+            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
+            $statement->execute(); // execute the PDO statement
+        }
+        catch (PDOException $e){
+            $e->getMessage();
+        }
+        $dataSet = [];
+        while ($row = $statement->fetch()) {
+            $dataSet[] = $row;
+        }
+        return $dataSet;
+    }
+
     public function addProject($name){
         $query = "INSERT INTO project( name) VALUES(?);";
         $statement = $this->_dbHandle->prepare($query); // prepare a PDO statement
@@ -201,19 +217,5 @@ class UserDataSet
 
 
 
-    public function fetchEmployees(){
-        try {
-            $sqlQuery = 'SELECT employeeID,firstname,lastname, email  FROM employee ORDER BY employeeID';
-            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
-            $statement->execute(); // execute the PDO statement
-        }
-        catch (PDOException $e){
-            $e->getMessage();
-        }
-        $dataSet = [];
-        while ($row = $statement->fetch()) {
-            $dataSet[] = $row;
-        }
-        return $dataSet;
-    }
+
 }
