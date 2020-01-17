@@ -25,28 +25,29 @@
     </div>
     <div class="container">
         <div class="navbar-header">
-            <a href="index.php" class="navbar-brand">Time Registration Tool</a>
+            <a href="login.php" class="navbar-brand">Time Registration Tool</a>
         </div>
 
 
 
         <div class="container">
         <ul class="nav navbar-nav">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="project.php">Projects</a></li>
-            <li><a href="time.php">Time</a></li>
-            <li><a href="export.php">Export</a></li>
+<!--            <li><a href="project.php">Projects</a></li>-->
+<!--            <li><a href="time.php">Time</a></li>-->
+<!--            <li><a href="export.php">Export</a></li>-->
         </ul>
 
             <?php if(isset($_SESSION['logged_in'])):
-//                var_dump($_SESSION['logged_in']);
                 ?>
             <!--if user is admin, allow user to add users -->
                 <?php if($_SESSION['logged_in']->getEmail() == "admin@admin.com"):
-        echo '<ul class="nav navbar-nav navbar-right">
-            <li><a href="register.php">Sign Up</a></li>
-        </ul>'
-
+                    echo '
+                            <ul class="nav navbar-nav">
+                                    <li><a href="export.php">Export</a></li>
+                                </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="register.php">Add User</a></li>
+                            </ul>'
                 ?>
 
                 <?php else: ?>
@@ -56,16 +57,18 @@
 
 
 
-
-
-
-
 <!--            <form action="--><?php //echo $_SERVER['PHP_SELF']; ?><!--" method="post">-->
             <?php
 
 
             if(isset($_SESSION['logged_in']))
             {
+                echo         '<div class="container">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="project.php">Projects</a></li>
+                                    <li><a href="time.php">Time</a></li>
+                                    
+                                </ul>';
                 echo '<p class="navbar-text pull-right">Welcome Back </p>';
 
 
@@ -78,8 +81,8 @@
             }
             else{
 
-                echo '<ul class="nav navbar-nav navbar-right">
-                      <li><a href="login.php">Login</a></li>';
+//                echo '<ul class="nav navbar-nav">
+//                      <li><a href="login.php">Login</a></li>';
             }
 
             if(isset($_POST['logout'])){
