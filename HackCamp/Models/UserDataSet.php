@@ -198,7 +198,28 @@ class UserDataSet
         }
         return $dataSet;
     }
-
+    public function getTimeReport($employeeID){
+        try {
+            $sqlQuery = 'SELECT  project.name, 
+                            date_format((hoursworked.start_time), \'%D %M %Y\') AS \'Date\',
+                            date_format((hoursworked.start_time), \'%H:%i\') AS \'Start Time\',
+                            date_format((hoursworked.end_time), \'%H:%i\') AS \'End Time\',
+                            TIMESTAMPDIFF(HOUR,start_time, end_time) As TotalHours
+                        FROM hoursworked INNER  JOIN project ON project.projectID = hoursworked.projectID 
+                        WHERE employeeID = ?
+                        ORDER BY Date ASC;';
+            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
+            $statement->execute([$employeeID]); // execute the PDO statement
+        }
+        catch (PDOException $e){
+            $e->getMessage();
+        }
+        $dataSet = [];
+        while ($row = $statement->fetch()) {
+            $dataSet[] = $row;
+        }
+        return $dataSet;
+    }
 
     public function getEmployeeDetails($employeeID){
         try {

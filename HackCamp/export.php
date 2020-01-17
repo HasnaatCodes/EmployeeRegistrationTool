@@ -22,7 +22,7 @@ if(isset($_POST["export"])){
         $arraySize = count($row)/2;
         $newRow = array();
         $employeeDetails = '';
-        $employeeTemplate=array('ID: ', 'FirstName: ', 'LastName: ');
+        $employeeTemplate=array('ID: ', ' ', '');
         for($i=0; $i<$arraySize; $i++)
         {
             $employeeDetails .=  $employeeTemplate[$i] . $row[$i] . ' ' ;
@@ -33,8 +33,8 @@ if(isset($_POST["export"])){
         fputcsv($output, $newRow);
     }
 
-    fputcsv($output, array('projectID', 'Project Name', 'Hours Worked'));
-    $rows = $userDataSet->getAverageForProject($_POST['employee_ID']);
+    fputcsv($output, array('Project Name','Date', 'Start Time', 'End Time', 'Hours Worked'));
+    $rows = $userDataSet->getTimeReport($_POST['employee_ID']);
 
 
     foreach ($rows as $row){
