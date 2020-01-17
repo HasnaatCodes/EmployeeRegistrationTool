@@ -9,24 +9,27 @@ $userDataSet = new UserDataSet();
 //if(isset($_SESSION['login'])){
 //    $view->employees = $userDataSet->fetchEmployees();
 //}
-
+if (isset($_SESSION['login'])){
+    $view->email = $_SESSION['login']->getEmail();
+}
 if(isset($_POST["export"])){
 
     header('Content-Type: text/csv');
-    header('Content-Disposition: attachment; filename=data.csv');
-//    $filename = 'uploads/'.strtotime("now").'.csv';
+    header('Content-Disposition: attachment; filename=report.csv');
     $output = fopen("php://output", "w+");
-//    $output = fopen($filename, "w+");
     $rows = $userDataSet->getEmployeeDetails($_POST['employee_ID']);
-    fputcsv($output, array('employeeID', 'first name', 'last name'));
     foreach ($rows as $row){
         $arraySize = count($row)/2;
         $newRow = array();
+        $employeeDetails = '';
+        $employeeTemplate=array('ID: ', 'FirstName: ', 'LastName: ');
         for($i=0; $i<$arraySize; $i++)
         {
-
-            array_push($newRow, $row[$i]);
+            $employeeDetails .=  $employeeTemplate[$i] . $row[$i] . ' ' ;
+//            array_push($newRow, $row[$i]);
         }
+        $newRow = array($employeeDetails);
+//        fputcsv($output, $newRow);
         fputcsv($output, $newRow);
     }
 

@@ -182,7 +182,7 @@ class UserDataSet
     //gets the average hours worked by an employee for each project
     public function getAverageForProject($employeeID){
         try {
-            $sqlQuery = 'SELECT hoursworked.projectID, project.name, SUM(TIMESTAMPDIFF(MINUTE,start_time, end_time)) As TotalHours
+            $sqlQuery = 'SELECT hoursworked.projectID, project.name, SUM(TIMESTAMPDIFF(HOUR,start_time, end_time)) As TotalHours
                         FROM hoursworked INNER  JOIN project ON project.projectID = hoursworked.projectID 
                         WHERE employeeID = ?
                         GROUP BY hoursworked.projectID;';
