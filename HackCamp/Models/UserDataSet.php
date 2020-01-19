@@ -215,7 +215,7 @@ class UserDataSet
             $e->getMessage();
         }
         $dataSet = [];
-        while ($row = $statement->fetch()) {
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
             $dataSet[] = $row;
         }
         return $dataSet;
@@ -233,7 +233,7 @@ class UserDataSet
             $e->getMessage();
         }
         $dataSet = [];
-        while ($row = $statement->fetch()) {
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
             $dataSet[] = $row;
         }
         return $dataSet;
