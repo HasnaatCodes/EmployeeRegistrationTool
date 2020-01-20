@@ -51,7 +51,7 @@ if(isset($_POST['export'])){
     $spreadsheet->getActiveSheet()->getStyle('A1:E1')->applyFromArray(
         array(
             'font'  => array(
-                'bold'  => true,
+                'bold'  => false,
                 'color' => array('rgb' => 'ffffff'),
                 'size'  => 13,
                 'name'  => 'Verdana'
@@ -61,12 +61,22 @@ if(isset($_POST['export'])){
                 'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
                 'textRotation' => 0,
                 'wrapText' => TRUE
-           )
+            )
         )
     );
 //set second row to orange
     $spreadsheet->getActiveSheet()->getStyle('A2:E2')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('00f5820c');
 
+    $spreadsheet->getActiveSheet()->getStyle('A2:E2')->applyFromArray(
+        array(
+            'font'  => array(
+                'bold'  => false,
+                'color' => array('rgb' => 'ffffff'),
+                'size'  => 12,
+                'name'  => 'Verdana'
+            )
+        )
+    );
     // Add some data
     $spreadsheet->setActiveSheetIndex(0)
         ->setCellValue('A2', 'Project Name')
