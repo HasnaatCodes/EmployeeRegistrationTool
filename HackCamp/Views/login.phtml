@@ -3,41 +3,42 @@
 <?php
 
 
-/**
- *
- * Only display the Log In form if no user is already signed in.
- */
-if(isset($_SESSION['logged_in'])){
-    echo 'You are already signed in, you can log out if you want.';
-}
-else{
-
-    echo '    <h3>Welcome back. Log in to view updates</h3>
-
-    <form action="login.php" method="post">
-    <div class="container">
-
-        <div class="col-sm-3"
-    <p>Please fill in the form to log in</p>
-        <hr class="mb-3">
-
-        <label for="email"><b>Email</b></label>
-        <input class="form-control" type="email" name="email" placeholder="name@email.com" required>
-
-        <label for="password"><b>Password</b></label>
-        <input class="form-control" type="password" name="password" placeholder="********" required>
-
-        <hr class="mb-3">
-        <input class="btn btn-primary" type="submit" name="login" value="Log In">';
-
-    if($view->userValidation == false){
-        echo '<p class="error">Email or Password is invalid <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></p>';
-        $view->userValidation = null;
+    /**
+     *
+     * Only display the Log In form if no user is already signed in.
+     */
+    if(isset($_SESSION['logged_in'])){
+        echo 'You are signed in as ' . $_SESSION['login']->getEmail();
     }
+    else{
 
-    echo '</div>';
+        echo '    <h3>Welcome back. Log in to view updates</h3>
+    
+        <form action="login.php" method="post">
+        <div class="container">
+    
+            <div class="col-sm-3"
+                <p>Please fill in the form to log in</p>
+                <hr class="mb-3">
+    
+                <label for="email"><b>Email</b></label>
+                <input class="form-control" type="email" name="email" placeholder="name@email.com" required>
+    
+             <label for="password"><b>Password</b></label>
+                <input class="form-control" type="password" name="password" placeholder="********" required>
+    
+                <hr class="mb-3">
+                <input class="btn btn-primary" type="submit" name="login" value="Log In">';
 
-}
+        //if submission is invalid prints error message
+        if($view->userValidation == false){
+            echo '<p class="error">Email or Password is invalid <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></p>';
+            $view->userValidation = null;
+        }
+
+        echo '</div></div></form>';
+
+    }
 ?>
 
 <?php require('template/footer.phtml') ?>

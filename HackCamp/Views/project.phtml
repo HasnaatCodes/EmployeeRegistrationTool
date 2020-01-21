@@ -1,69 +1,70 @@
 <?php require('template/newheader.phtml') ?>
 <!--only display page if user has logged in -->
-<?php if(isset($_SESSION['logged_in'])): ?>
-    <h3>Welcome to Projects</h3>
-    <!--if user is admin, allow user to add projects -->
-    <?php if($view->email == "admin@admin.com"): ?>
+    <?php if(isset($_SESSION['logged_in'])): ?>
+        <h3>Welcome to Projects</h3>
+        <!--if user is admin, allow user to add projects -->
+        <?php if($view->email == "admin@admin.com"): ?>
 
-        <form class='form-inline' action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <p>As an admin you may add projects, so others can assign themselves to the projects</p>
-            <div class="form-group">
-                <label class='mylabel'for="projectname"><b>Project Name</b></label>
-                <input class="form-control" type="text" name="projectname" required>
-            </div>
-            <button type="submit" name='addProject' value='Add Project' class="btn btn-primary mb-2">Add Project</button>
-            <?php if(isset($_SESSION['addedProject'])): ?>
-                <p class="successful">
-                    <?php echo $_SESSION['addedProject']; ?>
-                    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
-                </p>
-                <?php $_SESSION['addedProject'] = null; ?>
-            <?php endif; ?>
-            <?php if(isset($_SESSION['projectExists'])): ?>
-                <p class="error">
-                    <?php echo $_SESSION['projectExists']; ?>
-                    <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
-                    . Please choose another name for the project
-                </p>
-                <?php $_SESSION['projectExists'] = null; ?>
-            <?php endif; ?>
-
-        </form>
-
-
-    <!-- if user is not an admin, allow the user to add projects -->
-    <?php else: ?>
-        <!-- if there are not projects present for user print a message for this-->
-        <?php if(empty($view->projects)): ?>
-            <p class="no-projects">If you want to assign yourself to a project.
-                Please tell the admin to make the project available.</p>
-        <!-- if there are projects available, allow user to choose a project -->
-        <?php else: ?>
-            <form class="form-inline" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-             <div class="form-group">
-                    <label class="mylabel" for="chooseproject"><p>Assign Project</p></label>
-                    <select name='projectID' class="form-control" id="chooseproject">
-                        <!--list the projects available in a drop down box-->
-                        <?php foreach ($view->projects as $project){
-                            echo '<option value="' . $project['projectID'].'">' . $project['name'] . '</option>';
-                        }
-                        ?>
-                    </select>
-             </div>
-                    <button type="submit" name='assignProject' value='Assign Project' class="btn btn-primary mb-2">Assign Project</button>
-                  <!-- if the project is assigned print a message-->
-                 <?php if(isset($_SESSION['assignProject'])): ?>
+            <form class='form-inline' action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                    <p>As an admin you may add projects, so others can assign themselves to the projects</p>
+                <div class="form-group">
+                    <label class='mylabel'for="projectname"><b>Project Name</b></label>
+                    <input class="form-control" type="text" name="projectname" required>
+                </div>
+                <button type="submit" name='addProject' value='Add Project' class="btn btn-primary mb-2">Add Project</button>
+                <?php if(isset($_SESSION['addedProject'])): ?>
                     <p class="successful">
-                        <?php echo $_SESSION['assignProject']; ?>
+                        <?php echo $_SESSION['addedProject']; ?>
                         <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
                     </p>
-                    <?php $_SESSION['assignProject'] = null; ?>
-                 <?php endif; ?>
+                    <?php $_SESSION['addedProject'] = null; ?>
+                <?php endif; ?>
+                <!--if the user tries to add a project that already exists, prints an error message -->
+                <?php if(isset($_SESSION['projectExists'])): ?>
+                    <p class="error">
+                        <?php echo $_SESSION['projectExists']; ?>
+                        <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                        . Please choose another name for the project
+                    </p>
+                    <?php $_SESSION['projectExists'] = null; ?>
+                <?php endif; ?>
+
             </form>
+
+
+        <!-- if user is not an admin, allow the user to add projects -->
+        <?php else: ?>
+            <!-- if there are not projects present for user print a message for this-->
+            <?php if(empty($view->projects)): ?>
+                <p class="no-projects">If you want to assign yourself to a project.
+                    Please tell the admin to make the project available.</p>
+            <!-- if there are projects available, allow user to choose a project -->
+            <?php else: ?>
+                <form class="form-inline" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                 <div class="form-group">
+                        <label class="mylabel" for="chooseproject"><p>Assign Project</p></label>
+                        <select name='projectID' class="form-control" id="chooseproject">
+                            <!--list the projects available in a drop down box-->
+                            <?php foreach ($view->projects as $project){
+                                echo '<option value="' . $project['projectID'].'">' . $project['name'] . '</option>';
+                            }
+                            ?>
+                        </select>
+                 </div>
+                        <button type="submit" name='assignProject' value='Assign Project' class="btn btn-primary mb-2">Assign Project</button>
+                      <!-- if the project is assigned print a message-->
+                     <?php if(isset($_SESSION['assignProject'])): ?>
+                        <p class="successful">
+                            <?php echo $_SESSION['assignProject']; ?>
+                            <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+                        </p>
+                        <?php $_SESSION['assignProject'] = null; ?>
+                     <?php endif; ?>
+                </form>
+            <?php endif; ?>
         <?php endif; ?>
+    <?php else: ?>
+            <p>You must login to view this page. <a href="login.php">Click here to login</a></p>
     <?php endif; ?>
-<?php else: ?>
-        <p>You must login to view this page. <a href="login.php">Click here to login</a></p>
-<?php endif; ?>
 
 <?php require('template/footer.phtml'); ?>

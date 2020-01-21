@@ -1,24 +1,24 @@
 <?php require('template/newheader.phtml') ?>
 
-<?php if(isset($_SESSION['logged_in'])): ?>
+    <?php if(isset($_SESSION['logged_in'])): ?>
 
-    <!--if user is admin, allow user to add users -->
-    <?php if($view->email == "admin@admin.com"): ?>
+        <!--if user is admin, allow user to add users -->
+        <?php if($view->email == "admin@admin.com"): ?>
 
-    <h3>You can Export a report for an employee</h3>
+            <h3>You can Export a report for an employee</h3>
 
-    <form class="form-inline" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <div class="form-group">
-            <label for="employee_ID">Employee ID</label>
-            <input class="form-control" type="text" name="employee_ID" placeholder="5346" >
-        </div>
-        <button type="submit" name="export" class="btn btn-primary">Generate Report</button>
-    </form>
+            <form class="form-inline" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <div class="form-group">
+                    <label for="employee_ID">Employee ID</label>
+                    <input class="form-control" type="text" name="employee_ID" placeholder="5346" >
+                </div>
+                <button type="submit" name="export" class="btn btn-primary">Generate Report</button>
+            </form>
+        <?php else: ?>
+            <p>You must be an admin to view this page</p>
+        <?php endif; ?>
     <?php else: ?>
-        <p>You must be an admin to view this page</a></p>
-    <?php endif; ?>
-<?php else: ?>
-    <p>You must login to view this page. <a href="login.php">Click here to login</a></p>
-<?php endif; ?>
+            <p>You must login to view this page. <a href="login.php">Click here to login</a></p>
+        <?php endif; ?>
 
 <?php require('template/footer.phtml') ?>

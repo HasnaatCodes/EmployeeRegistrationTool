@@ -26,25 +26,6 @@ class UserDataSet
      * Password is also encrypted using the MD5 hash method.
      *
      */
-//    public function createUser($firstName, $lastName, $email, $password) {
-//
-//        $email = htmlentities($email);
-//        if(!$this->emailInDatabase($email))
-//        {
-//            $firstName = htmlentities($firstName);
-//            $lastName = htmlentities($lastName);
-//            $password = htmlentities($password);
-//            $password = md5($password);
-//            $sqlQuery = 'INSERT INTO users (firstname, lastname, password, email) VALUES('."\"$firstName\"".', '."\"$lastName\"".', '."\"$password\"".', '."\"$email\"".')';
-//            //var_dump($sqlQuery);
-//            $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
-//            $statement->execute(); // execute the PDO statement
-//        }
-//        else
-//        {
-//            echo "Email already taken, please try another email!";
-//        }
-//    }
 
 
     /**
