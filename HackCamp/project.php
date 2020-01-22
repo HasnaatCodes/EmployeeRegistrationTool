@@ -13,7 +13,7 @@ if(isset($_SESSION['login'])){
     $view->email = $_SESSION['login']->getEmail();
 }
 
-
+//admin adds project, so it may be available to employees 
 if(isset($_POST['addProject'])){
     $projectName = $_POST['projectname'];
     //check if project already exists
@@ -28,7 +28,7 @@ if(isset($_POST['addProject'])){
 }
 
 
-//assign project to admin
+//assign project to user(employee)
 if(isset($_POST['assignProject'])) {
     $projectID = $_POST['projectID'];
     $user = $_SESSION['login'];
