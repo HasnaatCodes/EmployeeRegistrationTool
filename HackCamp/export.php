@@ -7,11 +7,12 @@ $userDataSet = new UserDataSet();
 
 require 'vendor/autoload.php';
 
+//classes for exporting data in database to excel file 
 use PhpOffice\PhpSpreadsheet\Helper\Sample;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
-
+//export button is triggered, try exporting a file
 if(isset($_POST['export'])){
 
     $helper = new Sample();
@@ -95,7 +96,7 @@ if(isset($_POST['export'])){
             ->fromArray($rows, '', 'A3');
 
 
-
+    //auto size columns
     $spreadsheet->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
     $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
     $spreadsheet->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
@@ -126,52 +127,12 @@ if(isset($_POST['export'])){
     exit;
 }
 
+//get email of user
 if (isset($_SESSION['login'])){
     $view->email = $_SESSION['login']->getEmail();
 }
 
-//if(isset($_POST["export"])){
-//
-//    header('Content-Type: text/csv');
-//    header('Content-Disposition: attachment; filename=report.csv');
-//    $output = fopen("php://output", "w+");
-//    $rows = $userDataSet->getEmployeeDetails($_POST['employee_ID']);
-//
-//
-//    foreach ($rows as $row){
-//        $arraySize = count($row)/2;
-//        $newRow = array();
-//        $employeeDetails = '';
-//        $employeeTemplate=array('ID: ', ' ', '');
-//        for($i=0; $i<$arraySize; $i++)
-//        {
-//            $employeeDetails .=  $employeeTemplate[$i] . $row[$i] . ' ' ;
-////            array_push($newRow, $row[$i]);
-//        }
-//        $newRow = array($employeeDetails);
-////        fputcsv($output, $newRow);
-//        fputcsv($output, $newRow);
-//    }
-//
-//    fputcsv($output, array('Project Name','Date', 'Start Time', 'End Time', 'Hours Worked'));
-//    $rows = $userDataSet->getTimeReport($_POST['employee_ID']);
-//
-//    foreach ($rows as $row){
-//        fputcsv($output, $row);
-//    }
-////    foreach ($rows as $row){
-////        $arraySize = count($row)/2;
-////        $newRow = array();
-////        for($i=0; $i<$arraySize; $i++)
-////        {
-////
-////            array_push($newRow, $row[$i]);
-////        }
-////        fputcsv($output, $newRow);
-////    }
-//
-//    fclose($output);
-//    exit();
-//}
+
+
 
 require_once('Views/export.phtml');
