@@ -7,3 +7,13 @@ Employee will choose a project and write how long they have worked on a project.
 
 Admin has special privileges, such as creating users, making projects available for users to write how long 
 they have worked on a project and exporting a report on an employee
+
+Use the following credentials to test the system
+
+1)login as an admin
+  Email: admin@admin.com
+  Password: admin
+  
+2)login as an employee
+  Email: moh@moh.com
+  Password: 123
