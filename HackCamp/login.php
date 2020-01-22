@@ -9,13 +9,12 @@ $view->pageTitle = 'Login';
 $view->userValidation = true;
 $userDataSet = new UserDataSet();
 
-//$isUserLoggedIn = $_SESSION['userName'];
 
 
 /**
  *
  * When the user presses the log in button
- * Send the values from the form to the chechLogIn function in userDataSet and verify their details
+ * Send the values from the form to the checkLogIn() function in userDataSet and verify their details
  */
 if(isset($_POST['login'])){
     $email          = $_POST['email'];
