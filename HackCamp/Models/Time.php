@@ -13,6 +13,8 @@ class Time
         $this->_dbHandle = $this->_dbInstance->getdbConnection();
     }
 
+    //insert start and end time of an employee for a project 
+
     public function insertTime($employeeID, $projectName, $start_time, $end_time) {
 
         $employeeID = htmlentities($employeeID);
