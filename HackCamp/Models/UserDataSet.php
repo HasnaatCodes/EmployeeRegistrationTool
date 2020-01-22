@@ -4,6 +4,9 @@ require_once('Models/Database.php');
 require_once('Models/UserData.php');
 require_once ('Models/project.php');
 
+/*
+ * query the database to get user information and projects 
+ */
 class UserDataSet
 {
 
@@ -16,19 +19,7 @@ class UserDataSet
         $this->_dbHandle = $this->_dbInstance->getdbConnection();
     }
 
-    /**
-     * @param $firstName
-     * @param $lastName
-     * @param $email
-     * @param $password
-     *
-     * These are the parameters used to create a new user when they are signing up.
-     * Password is also encrypted using the MD5 hash method.
-     *
-     */
-
-
-    /**
+    /*
      * @param $email
      * @return bool
      *
@@ -56,8 +47,6 @@ class UserDataSet
     /**
      * @param $email
      * @return UserData
-     *
-     *
      */
     public function getUser($email)
     {
@@ -105,7 +94,16 @@ class UserDataSet
         return $isLoggedIn;
 
     }
-
+    
+    /**
+     * @param $firstName
+     * @param $lastName
+     * @param $email
+     * @param $password
+     *
+     * These are the parameters used to create a new user when they are signing up.
+     * Password is also encrypted using the MD5 hash method.
+     */
     public function createUser($firstName, $lastName, $email, $password) {
 
         $email = htmlentities($email);
@@ -129,6 +127,8 @@ class UserDataSet
         }
     }
 
+
+    //check whether a project already exists
     public function checkIfProjectExists($projectName){
         try {
             $sqlQuery = 'SELECT projectID FROM project WHERE name = ?; ';
@@ -179,6 +179,17 @@ class UserDataSet
         }
         return $dataSet;
     }
+
+   /* query database to get a report on an employee 
+    *retuning a report on how long the employee 
+    * has worked on each project
+    * columns returned:
+    * 1) project name
+    * 2) date 
+    * 3) start time
+    * 4) end time
+    * 5) total hours worked
+    */
     public function getTimeReport($employeeID){
         try {
             $sqlQuery = 'SELECT  project.name, 
@@ -196,12 +207,17 @@ class UserDataSet
             $e->getMessage();
         }
         $dataSet = [];
+        //Fetch:assoc to prevent duplicates
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
             $dataSet[] = $row;
         }
         return $dataSet;
     }
 
+    /*
+     * @param employeeID
+     * return employee details
+     */
     public function getEmployeeDetails($employeeID){
         try {
             $sqlQuery = 'SELECT employeeID, firstname, lastname 
@@ -220,13 +236,17 @@ class UserDataSet
         return $dataSet;
     }
 
-
+    // given project name add data into database
     public function addProject($name){
         $query = "INSERT INTO project( name) VALUES(?);";
         $statement = $this->_dbHandle->prepare($query); // prepare a PDO statement
         $statement->execute([$name]);
     }
 
+    /*
+     * check for projects that have not been assigned to a user
+     * @param email
+     */
     public function fetchAvailableProjects($employeeID){
         try {
             $sqlQuery = 'SELECT projectID, name FROM project WHERE projectID NOT IN (SELECT projectID FROM assigned_project where employeeID = ? ) ORDER BY projectID';
@@ -242,6 +262,11 @@ class UserDataSet
         }
         return $dataSet;
     }
+    
+    /*
+     * get a list of projects that have been assigned
+     * @param employeeID
+     */
     public function fetchAssignedProjects($employeeID){
         try {
             $sqlQuery = 'SELECT projectID, name FROM project WHERE projectID IN (SELECT projectID FROM assigned_project where employeeID = ? ) ORDER BY projectID';
@@ -258,6 +283,10 @@ class UserDataSet
         return $dataSet;
     }
 
+    
+    /*
+     * gets all projects available
+     */
     public function fetchAllProjects(){
         try {
             $sqlQuery = 'SELECT projectID, name FROM project ORDER BY projectID';
@@ -274,14 +303,15 @@ class UserDataSet
         return $dataSet;
     }
 
-
+    /*
+     * assign a project to a user
+     * @param projectID
+     * @param employeeID
+     */
     public function assignProject($projectID, $employeeID){
         $query = "INSERT INTO assigned_project(projectID, employeeID) VALUES(?,?);";
         $statement = $this->_dbHandle->prepare($query); // prepare a PDO statement
         $statement->execute([$projectID, $employeeID]);
     }
-
-
-
 
 }

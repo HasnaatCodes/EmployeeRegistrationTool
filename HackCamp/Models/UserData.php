@@ -1,6 +1,8 @@
 <?php
 
-
+/*
+ * stores data for a particular user
+ */
 class UserData
 {
     protected $_id, $_firstName, $_lastName, $_password, $_email;
