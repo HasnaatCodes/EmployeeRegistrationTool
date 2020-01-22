@@ -12,10 +12,8 @@
 }
 
 .nav.navbar-nav li a {
-    /*color: #F5820C;*/
     color: #023A78;
-    /*color: #666666;*/
-    /*color: #225eb2;*/
+  
 }
 
 .nav.navbar-nav a:hover{
@@ -106,11 +104,15 @@
     margin-right: 20px;
 }
 
+/*
+ * message on success is green
+ */
 .successful{
     color: green;
     border-color: greenyellow;
     margin-top: 30px;
 }
+
 .no-projects, .error{
     color: red;
     margin-top: 30px;
