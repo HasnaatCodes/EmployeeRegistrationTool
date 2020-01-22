@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * stores data of a project with three fields
+ * 1) projectID
+ * 2) name
+ * 3) $employeeID
+ */
 
 class project
 {
