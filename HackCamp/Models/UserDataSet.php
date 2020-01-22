@@ -4,6 +4,9 @@ require_once('Models/Database.php');
 require_once('Models/UserData.php');
 require_once ('Models/project.php');
 
+/*
+ * query the database to get user information and projects 
+ */
 class UserDataSet
 {
 
@@ -56,8 +59,6 @@ class UserDataSet
     /**
      * @param $email
      * @return UserData
-     *
-     *
      */
     public function getUser($email)
     {
@@ -105,7 +106,8 @@ class UserDataSet
         return $isLoggedIn;
 
     }
-
+    
+    //create a user passing in relevant credentials 
     public function createUser($firstName, $lastName, $email, $password) {
 
         $email = htmlentities($email);
@@ -129,6 +131,8 @@ class UserDataSet
         }
     }
 
+
+    //check whether a project already exists
     public function checkIfProjectExists($projectName){
         try {
             $sqlQuery = 'SELECT projectID FROM project WHERE name = ?; ';
@@ -179,6 +183,16 @@ class UserDataSet
         }
         return $dataSet;
     }
+
+   //query database to get a report on an employee 
+   // retuning a report on how long the employee 
+   // has worked on each project
+   //columns returned:
+   //1 project name
+   // date 
+   // start time
+   // end time
+   //total hours worked
     public function getTimeReport($employeeID){
         try {
             $sqlQuery = 'SELECT  project.name, 
@@ -196,6 +210,7 @@ class UserDataSet
             $e->getMessage();
         }
         $dataSet = [];
+        //Fetch:assoc to prevent duplicates
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
             $dataSet[] = $row;
         }
