@@ -13,7 +13,7 @@ class UploadFunctionality{
     }
 
     public function uploadFile($employeeID, $fileName, $fileLocation){
-
+        //upload file into database 
         $sqlQuery = 'INSERT INTO file_uploads(employeeID, file_name, file_location) VALUES('."\"$employeeID\"".', '."\"$fileName\"".', '."\"$fileLocation\"".')';
         $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
 
@@ -22,9 +22,8 @@ class UploadFunctionality{
             $this->updateSignedHours($employeeID);
         }
     }
-
+    //once user uploads file call this method to indicate the user has signed in
     public function updateSignedHours($employeeID){
-
         $sqlQuery = 'UPDATE hoursworked JOIN file_uploads SET signed = 1 WHERE file_uploads.employeeID ='."\"$employeeID\"";
         $statement = $this->_dbHandle->prepare($sqlQuery); // prepare a PDO statement
         $statement->execute();
