@@ -40,7 +40,7 @@
             <?php if(isset($_SESSION['logged_in'])):
                 ?>
             <!--if user is admin, allow user to add users -->
-                <?php if($_SESSION['logged_in'] == "admin@admin.com"):
+                <?php if($_SESSION['logged_in']->getEmail() == "admin@admin.com"):
                     echo '
                             <ul class="nav navbar-nav">
                                     <li><a href="export.php">Export</a></li>
@@ -59,7 +59,13 @@
 
 <!--            <form action="--><?php //echo $_SERVER['PHP_SELF']; ?><!--" method="post">-->
             <?php
+            if(isset($_POST['logout'])){
+                unset($_SESSION['logged_in']);
+                unset($_SESSION['login']);
+                $URL="http://localhost:8000/login.php";
+                echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
 
+            }
 
             if(isset($_SESSION['logged_in']))
             {
@@ -83,13 +89,7 @@
 
             }
 
-            if(isset($_POST['logout'])){
-                unset($_SESSION['logged_in']);
-                unset($_SESSION['login']);
-                $URL="http://localhost:8000/login.php";
-                echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
 
-            }
             ?>
 
 
