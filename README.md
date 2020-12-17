@@ -1,4 +1,4 @@
-# SPATproject#
+# Software Project with Agile Techniques Group Project
 
 Time Registration Tool designed to allow employees write how long they have worked on a project
 
